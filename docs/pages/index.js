@@ -47,13 +47,13 @@ class Homepage extends React.Component {
 
           <div className={classes.stepWrapper}>
             <DownloadIcon className={classes.stepIcon} />
-            <Typography variant="title">Installation</Typography>
+            <Typography variant="h6">Installation</Typography>
           </div>
           <CodeSnippet withMargin language={"bash"} text={`npm install mui-datatables --save`} />
 
           <div className={classes.stepWrapper}>
             <BuildIcon className={classes.stepIcon} />
-            <Typography variant="title">Usage</Typography>
+            <Typography variant="h6">Usage</Typography>
           </div>
           <CodeSnippet
             language={"jsx"}
@@ -72,11 +72,11 @@ const options = {
   filterType: 'checkbox',
 };
 
-<MUIDataTable 
-  title={"Employee List"} 
-  data={data} 
-  columns={columns} 
-  options={options} 
+<MUIDataTable
+  title={"Employee List"}
+  data={data}
+  columns={columns}
+  options={options}
 />`}
           />
         </div>
