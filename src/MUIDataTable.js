@@ -84,6 +84,7 @@ class MUIDataTable extends React.Component {
       page: PropTypes.number,
       count: PropTypes.number,
       filterList: PropTypes.array,
+      filterData: PropTypes.array,
       rowsSelected: PropTypes.array,
       rowsPerPage: PropTypes.number,
       rowsPerPageOptions: PropTypes.array,
@@ -173,6 +174,7 @@ class MUIDataTable extends React.Component {
       rowsPerPage: 10,
       rowsPerPageOptions: [10, 15, 100],
       filter: true,
+      filterData: [],
       sortFilterList: true,
       sort: true,
       search: true,
@@ -279,6 +281,9 @@ class MUIDataTable extends React.Component {
     let { columns, filterData, filterList } = this.buildColumns(props.columns);
 
     columns.forEach((column, colIndex) => {
+      if(options.filterData[colIndex].length){
+        filterData[colIndex] = options.filterData[colIndex];
+      }
       for (let rowIndex = 0; rowIndex < data.length; rowIndex++) {
         let value = status === TABLE_LOAD.INITIAL ? data[rowIndex][colIndex] : data[rowIndex].data[colIndex];
 
@@ -300,7 +305,9 @@ class MUIDataTable extends React.Component {
           }
         }
 
-        if (filterData[colIndex].indexOf(value) < 0) filterData[colIndex].push(value);
+        if (filterData[colIndex].indexOf(value) < 0 && !options.filterData[colIndex].length) {
+          filterData[colIndex].push(value);
+        }
       }
 
       if (this.options.sortFilterList) {
