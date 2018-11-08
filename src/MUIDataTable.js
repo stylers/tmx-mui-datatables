@@ -281,7 +281,7 @@ class MUIDataTable extends React.Component {
     let { columns, filterData, filterList } = this.buildColumns(props.columns);
 
     columns.forEach((column, colIndex) => {
-      if(options.filterData[colIndex].length){
+      if (options.filterData[colIndex].length) {
         filterData[colIndex] = options.filterData[colIndex];
       }
       for (let rowIndex = 0; rowIndex < data.length; rowIndex++) {

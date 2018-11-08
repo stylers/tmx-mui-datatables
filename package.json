@@ -1,8 +1,8 @@
 {
   "name": "mui-datatables",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Datatables for React using Material-UI",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
